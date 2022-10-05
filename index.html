@@ -10,19 +10,37 @@
     <script>
         
         let userInput; 
+        let pcInput;
+
         let round = 0;
 
-       
+        let userWinToll = 0;
+        let pcWinToll = 0;
+
+        let options = ["rock","paper","scissors"];
 
 
         function choice(item){
             userInput = item; 
 
             finalResult();
+
+            computerChoice();
+
+            decisionMaker();
+
             round = round + 1; 
             
         }
 
+        function computerChoice(){
+            pcInput = options[Math.floor(Math.random()* options.length)];
+
+        }
+
+        function decisionMaker(){
+            if(userInput == "rock" && pcInput == "s")
+        }
         function finalResult(){
             if(round === 5){
                 console.log("Final result.")
@@ -32,8 +50,13 @@
             }
         }
 
-        choice("rock");
         
+        console.log(options[Math.floor(Math.random()* options.length)]);
+        console.log(options[Math.floor(Math.random()* options.length)]);
+        console.log(options[Math.floor(Math.random()* options.length)]);
+
+
+        console.log(options)
         console.log(round);
         console.log(userInput);
 
