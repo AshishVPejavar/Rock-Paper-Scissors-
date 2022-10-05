@@ -53,12 +53,14 @@
                 userInput = scissor;
             }
             else{console.log("Try again.")}
+            return;
         }
 
 
 
         function computerChoice(){
             pcInput = options[Math.floor(Math.random()* options.length)];
+            return;
         }
 
 
@@ -78,23 +80,36 @@
 
         */
         function decisionMaker(){
+            
             if(userInput == pcInput){
-                console.log("Input Again.");
+             
+                tieToll++;
+        
+                console.log(`Input Again. Round:${round}. Your win toll:${userWinToll}. PC win toll:${pcWinToll}. Tie toll: ${tieToll}.`);
 
             } else if(userInput == 1 && pcInput == 3){
                 pcInput = 0;
-                round = round + 1;
+                return;
+                
             } else if(userInput == 3 && userInput == 1 ){
                 userInput = 0;
-                round = round + 1;
+                return;
             }
 
             if(userInput > pcInput)
-            {userInput = userInput + 1;
-            userWinToll = userWinToll + 1;
+            {
+            userWinToll++;
+            round++;
+            console.log(`You won this round. Round:${round}. Your win toll:${userWinToll}. PC win toll:${pcWinToll}. Tie toll: ${tieToll}. `)
+
+
             } else {
-                pcInput = pcInput + 1; 
-                pcWinToll = pcWinToll + 1; 
+                
+                pcWinToll++; 
+                round++;
+
+                console.log(`PC won this round. Round:${round}. Your win toll:${userWinToll}. PC win toll:${pcWinToll}. Tie toll: ${tieToll}. `)
+
             }
 
 
@@ -112,8 +127,14 @@
 */
 
 
-     
+     choice("rock");
+     choice("paper");
+     choice("scissor")
+     choice("rock")
+     choice("scissor")
 
+
+  /*
         console.log(`PC choice is: ${pcInput}.`);
 
         
@@ -123,7 +144,7 @@
         console.log(userInput);
 
 
-        /*
+      
         function getComputerChoice() {
             console.log("This is working.");
         }
