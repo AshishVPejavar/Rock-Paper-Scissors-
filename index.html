@@ -17,17 +17,26 @@
         let userWinToll = 0;
         let pcWinToll = 0;
 
-        let options = ["rock","paper","scissors"];
+
+        let rock = 1;
+        let paper = 2;
+        let scissor = 3; 
+        let options = ["rock","paper","scissor"];
 
 
-        function choice(item){
+
+
+        function choice (item){
             userInput = item; 
+            console.log(`Your choice is: ${userInput}`);
 
             finalResult();
 
             computerChoice();
 
             decisionMaker();
+
+            roundResult();
 
             round = round + 1; 
             
@@ -39,8 +48,18 @@
         }
 
         function decisionMaker(){
-            if(userInput == "rock" && pcInput == "s")
+            if(userInput == pcInput){
+                console.log("Input Again.")
+                round = round - 1;
+            } else if(userInput == "rock" && pcInput =="scissor"){
+                
+            }
         }
+
+        function roundResult(){
+
+        }
+
         function finalResult(){
             if(round === 5){
                 console.log("Final result.")
@@ -50,10 +69,8 @@
             }
         }
 
-        
-        console.log(options[Math.floor(Math.random()* options.length)]);
-        console.log(options[Math.floor(Math.random()* options.length)]);
-        console.log(options[Math.floor(Math.random()* options.length)]);
+        choice("rock");
+        console.log(`PC choice is: ${pcInput}.`);
 
 
         console.log(options)
