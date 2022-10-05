@@ -11,6 +11,7 @@
         
         let userInput; 
         let pcInput;
+        let selectedChoice;
 
         let round = 0;
 
@@ -21,39 +22,76 @@
         let rock = 1;
         let paper = 2;
         let scissor = 3; 
-        let options = ["rock","paper","scissor"];
+
+        let options = [rock,paper,scissor];
 
 
 
 
         function choice (item){
             userInput = item; 
-            console.log(`Your choice is: ${userInput}`);
+            
 
             finalResult();
+            
+            choiceSelector();
 
             computerChoice();
 
             decisionMaker();
 
             roundResult();
-
-            round = round + 1; 
             
         }
+
+        function choiceSelector(){
+            if (userInput == "rock" || userInput == "ROCK" || userInput == "Rock"){
+                userInput = rock;
+            } else if (userInput == "paper" || userInput == "Paper" || userInput == "PAPER"){
+                userInput = paper;
+            }
+            else if (userInput == "scissor" || userInput == "SCISSOR" || userInput == "Scissor"){
+                userInput = scissor;
+            }
+            else{console.log("Try again.")}
+
+            console.log(`Your choice is: ${userInput}`);
+        }
+
+
 
         function computerChoice(){
             pcInput = options[Math.floor(Math.random()* options.length)];
 
         }
 
+
+        /* 
+        rock =1 
+        paper =2
+        scissors =3
+
+        3 > 2
+        2 > 1 
+
+        if pc select 1 and user select 3 >> then user selct 0. 
+            if user > pc ...
+        if user select 1 and pc select 3 >> then pc selct 0 
+            if user > pc ... 
+
+
+        */
         function decisionMaker(){
             if(userInput == pcInput){
                 console.log("Input Again.")
                 round = round - 1;
-            } else if(userInput == "rock" && pcInput =="scissor"){
-                
+            } else if(userInput == 1 && pcInput == 3){
+                pcInput = 0;
+            } else if(userInput == 3 && userInput == 1 ){
+                userInput = 0;
             }
+
+            if 
         }
 
         function roundResult(){
@@ -69,9 +107,12 @@
             }
         }
 
+
+
         choice("rock");
         console.log(`PC choice is: ${pcInput}.`);
 
+        
 
         console.log(options)
         console.log(round);
