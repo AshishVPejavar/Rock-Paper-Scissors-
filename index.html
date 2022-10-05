@@ -11,12 +11,14 @@
         
         let userInput; 
         let pcInput;
+
         let selectedChoice;
 
         let round = 0;
 
         let userWinToll = 0;
         let pcWinToll = 0;
+        let tieToll = 0;
 
 
         let rock = 1;
@@ -30,17 +32,14 @@
 
         function choice (item){
             userInput = item; 
-            
-
-            finalResult();
+        
+          /*  finalResult(); */
             
             choiceSelector();
 
             computerChoice();
 
             decisionMaker();
-
-            roundResult();
             
         }
 
@@ -54,15 +53,12 @@
                 userInput = scissor;
             }
             else{console.log("Try again.")}
-
-            console.log(`Your choice is: ${userInput}`);
         }
 
 
 
         function computerChoice(){
             pcInput = options[Math.floor(Math.random()* options.length)];
-
         }
 
 
@@ -83,21 +79,28 @@
         */
         function decisionMaker(){
             if(userInput == pcInput){
-                console.log("Input Again.")
-                round = round - 1;
+                console.log("Input Again.");
+
             } else if(userInput == 1 && pcInput == 3){
                 pcInput = 0;
+                round = round + 1;
             } else if(userInput == 3 && userInput == 1 ){
                 userInput = 0;
+                round = round + 1;
             }
 
-            if 
+            if(userInput > pcInput)
+            {userInput = userInput + 1;
+            userWinToll = userWinToll + 1;
+            } else {
+                pcInput = pcInput + 1; 
+                pcWinToll = pcWinToll + 1; 
+            }
+
+
         }
 
-        function roundResult(){
-
-        }
-
+/*
         function finalResult(){
             if(round === 5){
                 console.log("Final result.")
@@ -106,16 +109,17 @@
                 return; 
             }
         }
+*/
 
 
+     
 
-        choice("rock");
         console.log(`PC choice is: ${pcInput}.`);
 
         
 
         console.log(options)
-        console.log(round);
+        console.log(`round is ${round}`);
         console.log(userInput);
 
 
