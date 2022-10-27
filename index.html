@@ -7,8 +7,39 @@
     <title>Document</title>
 </head>
 <body>
+
+    <button class = "Rock">Rock</button>
+    <button class = "Paper">Papper</button>
+    <button class = "Scissor">Scissor</button>
+
+    <div id = "result"></div>
+
     <script>
-        
+
+        let userDecision; 
+
+        let userDecisionRock = document.querySelector(".Rock");
+        let userDecisionPapper = document.querySelector(".Paper");
+        let userDecisionScissor = document.querySelector(".Scissor");
+
+        let results = document.querySelector("#result");
+
+        userDecisionRock.addEventListener('click',()=>{results.innerHTML = "Rock";})
+        userDecisionPapper.addEventListener('click',()=>{results.innerHTML = "Paper";})
+        userDecisionScissor.addEventListener('click',()=>{results.innerHTML = "Scissor";})
+
+      
+
+        /*
+        let userdHTML = userDecision.textContent; 
+
+       
+
+       userDecision.addEventListener('click', ()=>{
+        results.innerHTML = `${userdHTML}`;
+       })
+       */
+/*
         let userInput; 
         let pcInput;
 
@@ -33,7 +64,7 @@
         function choice (item){
             userInput = item; 
         
-          /*  finalResult(); */
+          
             
             choiceSelector();
 
@@ -64,21 +95,7 @@
         }
 
 
-        /* 
-        rock =1 
-        paper =2
-        scissors =3
-
-        3 > 2
-        2 > 1 
-
-        if pc select 1 and user select 3 >> then user selct 0. 
-            if user > pc ...
-        if user select 1 and pc select 3 >> then pc selct 0 
-            if user > pc ... 
-
-
-        */
+        
         function decisionMaker(){
             
             if(userInput == pcInput){
@@ -115,16 +132,7 @@
 
         }
 
-/*
-        function finalResult(){
-            if(round === 5){
-                console.log("Final result.")
-                round = 0;
-            } else {
-                return; 
-            }
-        }
-*/
+
 
 
      choice("rock");
@@ -134,21 +142,7 @@
      choice("scissor")
 
 
-  /*
-        console.log(`PC choice is: ${pcInput}.`);
-
-        
-
-        console.log(options)
-        console.log(`round is ${round}`);
-        console.log(userInput);
-
-
-      
-        function getComputerChoice() {
-            console.log("This is working.");
-        }
-        */    
+  */
         
     </script>
 </body>
