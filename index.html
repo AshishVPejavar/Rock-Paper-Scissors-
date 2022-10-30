@@ -31,8 +31,9 @@
         let rockcode = 1;
         let papercode = 2;
         let scissorcode = 3; 
+        let userInputCode;
 
-        let options = [rockcode,papercode,scissorcode];
+        let options = ["Rock","Paper","Sciccor"];
 
 
         let userDecisionRock = document.querySelector(".Rock");
@@ -43,27 +44,28 @@
         let pcChoice = document.querySelector("#pcChoice");
         let finalResult = document.querySelector("#Final-result");
 
-        userDecisionRock.addEventListener('click',()=>{userInput = "Rock";})
+        userDecisionRock.addEventListener('click',()=>{userInput = "Rock"; test();})
 
-        userDecisionPapper.addEventListener('click',()=>{userInput = "Paper";})
+        userDecisionPapper.addEventListener('click',()=>{userInput = "Paper"; test();})
 
-        userDecisionScissor.addEventListener('click',()=>{userInput = "Scissor";})
+        userDecisionScissor.addEventListener('click',()=>{userInput = "Scissor"; test();})
 
         function test (){
         choiceSelector();
         computerChoice();
+        console.log(`Your choice: ${userInput}. PC's choice was: ${pcInput}.`)
         }
-1
+
 
 
         function choiceSelector(){
             if (userInput == "Rock"){
-                userInput = rockcode;
+                userInputCode = rockcode;
             } else if (userInput == "Paper"){
-                userInput = papercode;
+                userInputCode = papercode;
             }
             else if (userInput == "Scissor"){
-                userInput = scissorcode;
+                userInputCode = scissorcode;
             }
             else{console.log("Try again.")}
             return;
@@ -76,7 +78,7 @@
             return;
         }
 
-        console.log(`Your choice: ${userInput}. PC's choice was: ${pcInput}.`)
+
 /*
         function decisionMaker(){
             
