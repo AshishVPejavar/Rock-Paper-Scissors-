@@ -12,76 +12,58 @@
     <button class = "Paper">Papper</button>
     <button class = "Scissor">Scissor</button>
 
+    <div id="pcChoice"></div>
     <div id = "result"></div>
+    <div id="Final-result"></div>
 
     <script>
 
-        let userDecision; 
+        let userInput = 0; 
+        let pcInput = 0;
+        let selectedChoice;
+
+
+        let round = 0;
+        let userWinToll = 0;
+        let pcWinToll = 0;
+        let tieToll = 0;
+
+        let rockcode = 1;
+        let papercode = 2;
+        let scissorcode = 3; 
+
+        let options = [rockcode,papercode,scissorcode];
+
 
         let userDecisionRock = document.querySelector(".Rock");
         let userDecisionPapper = document.querySelector(".Paper");
         let userDecisionScissor = document.querySelector(".Scissor");
 
         let results = document.querySelector("#result");
+        let pcChoice = document.querySelector("#pcChoice");
+        let finalResult = document.querySelector("#Final-result");
 
-        userDecisionRock.addEventListener('click',()=>{results.innerHTML = "Rock";})
-        userDecisionPapper.addEventListener('click',()=>{results.innerHTML = "Paper";})
-        userDecisionScissor.addEventListener('click',()=>{results.innerHTML = "Scissor";})
+        userDecisionRock.addEventListener('click',()=>{userInput = "Rock";})
 
-      
+        userDecisionPapper.addEventListener('click',()=>{userInput = "Paper";})
 
-        /*
-        let userdHTML = userDecision.textContent; 
+        userDecisionScissor.addEventListener('click',()=>{userInput = "Scissor";})
 
-       
-
-       userDecision.addEventListener('click', ()=>{
-        results.innerHTML = `${userdHTML}`;
-       })
-       */
-/*
-        let userInput; 
-        let pcInput;
-
-        let selectedChoice;
-
-        let round = 0;
-
-        let userWinToll = 0;
-        let pcWinToll = 0;
-        let tieToll = 0;
-
-
-        let rock = 1;
-        let paper = 2;
-        let scissor = 3; 
-
-        let options = [rock,paper,scissor];
-
-
-
-
-        function choice (item){
-            userInput = item; 
-        
-          
-            
-            choiceSelector();
-
-            computerChoice();
-
-            decisionMaker();
-            
+        function test (){
+        choiceSelector();
+        computerChoice();
         }
+1
+
 
         function choiceSelector(){
-            if (userInput == "rock" || userInput == "ROCK" || userInput == "Rock"){
-                userInput = rock;
-            } else if (userInput == "paper" || userInput == "Paper" || userInput == "PAPER"){
-                userInput = paper;
+            if (userInput == "Rock"){
+                userInput = rockcode;
+            } else if (userInput == "Paper"){
+                userInput = papercode;
             }
-            else if (userInput == "scissor" || userInput == "SCISSOR" || userInput == "Scissor"){
-                userInput = scissor;
+            else if (userInput == "Scissor"){
+                userInput = scissorcode;
             }
             else{console.log("Try again.")}
             return;
@@ -94,8 +76,8 @@
             return;
         }
 
-
-        
+        console.log(`Your choice: ${userInput}. PC's choice was: ${pcInput}.`)
+/*
         function decisionMaker(){
             
             if(userInput == pcInput){
@@ -132,17 +114,13 @@
 
         }
 
+*/
 
 
 
-     choice("rock");
-     choice("paper");
-     choice("scissor")
-     choice("rock")
-     choice("scissor")
 
 
-  */
+  
         
     </script>
 </body>
