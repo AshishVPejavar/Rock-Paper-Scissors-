@@ -28,10 +28,15 @@
         let pcWinToll = 0;
         let tieToll = 0;
 
-        let rockcode = 1;
-        let papercode = 2;
-        let scissorcode = 3; 
-        let userInputCode;
+        let rockCode = 0;
+        let paperCode = 1;
+        let scissorCode = 2;
+
+        let userInputCode = 0;
+
+
+        let tempPCCode = 0;
+
 
         let options = ["Rock","Paper","Scissor"];
 
@@ -53,6 +58,8 @@
         function test (){
         choiceSelector();
         computerChoice();
+        decisionMaker();
+        
         console.log(`Your choice: ${userInput}. PC's choice was: ${pcInput}.`)
         }
 
@@ -60,12 +67,12 @@
 
         function choiceSelector(){
             if (userInput == "Rock"){
-                userInputCode = rockcode;
+                userInputCode = rockCode;
             } else if (userInput == "Paper"){
-                userInputCode = papercode;
+                userInputCode = paperCode;
             }
             else if (userInput == "Scissor"){
-                userInputCode = scissorcode;
+                userInputCode = scissorCode;
             }
             else{console.log("Try again.")}
             return;
@@ -74,49 +81,49 @@
 
 
         function computerChoice(){
-            pcInput = options[Math.floor(Math.random()* options.length)];
+            tempPCCode = Math.floor(Math.random()* options.length);
+            pcInput =  options[tempPCCode];
             return;
         }
 
-
-/*
         function decisionMaker(){
-            
-            if(userInput == pcInput){
-             
-                tieToll++;
-        
-                console.log(`Input Again. Round:${round}. Your win toll:${userWinToll}. PC win toll:${pcWinToll}. Tie toll: ${tieToll}.`);
 
-            } else if(userInput == 1 && pcInput == 3){
-                pcInput = 0;
-                return;
-                
-            } else if(userInput == 3 && userInput == 1 ){
-                userInput = 0;
-                return;
+            let pcInputCode = tempPCCode;
+
+            if(pcInputCode === userInputCode) {console.log("tie."); results.textContent = "Tie!";}
+            else if (pcInputCode === 0 && userInputCode === 2) {
+                pcInputCode = 2; 
+                userInputCode = 0; 
+                console.log("PC wins.");
+                results.textContent = "PC wins.";
+                pcWinToll++;
+            }
+            else if (pcInputCode === 2 && userInputCode === 0) {
+                pcInputCode = 0; 
+                userInputCode = 2; 
+                console.log("User wins.");
+                results.textContent = "User wins.";
+                userWinToll++;
+            }
+            else {
+                if(pcInputCode > userInputCode){
+                    console.log("PC wins.");
+                    results.textContent = "PC wins.";
+                    pcWinToll++;}
+                else {
+                    console.log("User wins.");
+                    results.textContent = "User wins.";
+                    userWinToll++;}
             }
 
-            if(userInput > pcInput)
-            {
-            userWinToll++;
-            round++;
-            console.log(`You won this round. Round:${round}. Your win toll:${userWinToll}. PC win toll:${pcWinToll}. Tie toll: ${tieToll}. `)
+            if (userWinToll == 5){finalResult.textContent = "You win!";}
+            else if (pcWinToll == 5){finalResult.textContent = "PC win.";}
+            else {}
 
-
-            } else {
-                
-                pcWinToll++; 
-                round++;
-
-                console.log(`PC won this round. Round:${round}. Your win toll:${userWinToll}. PC win toll:${pcWinToll}. Tie toll: ${tieToll}. `)
-
-            }
-
+           
 
         }
 
-*/
 
 
 
